@@ -1,10 +1,7 @@
 #include <iostream>
 #include <random>
 
-// #include <cstdlib>
-
 using namespace std;
-
 
 struct linked_list;
 
@@ -17,7 +14,7 @@ struct a_node{
 	a_node(int valin):m_val(valin), next(NULL){;}
 	a_node(int valin, a_node* _the_next):m_val(valin), next(_the_next){;}
 	~a_node(){
-		// I need to implement an adequate destructor;
+		// Need to implement an adequate destructor;
 	}
 
 	friend ostream& operator<<(ostream& os, a_node& node){
@@ -75,14 +72,14 @@ struct linked_list{
 			}
 
 			if (*it == NULL){
-				// at the back
+				// tail
 				*it = new a_node(in_elem);
 			}else{
-				// in the middle
+				// in the middle or head
 				*it = new a_node(in_elem, *it);
 			}
 		} else {
-			// it is not ordered so simply add to the head
+			// not ordered, simply add to the head
 			*first_node = new a_node(in_elem, *first_node);
 		}
 	}
@@ -122,15 +119,13 @@ int main(int argc, char** argv){
 	linked_list my_ll;
 
 	for (int i = 0; i < 10; i++){
-		// cout << "inserting " << i << endl;
-
 		// Seed with a real random value, if available
-	    random_device rd;
-	 
-	    // Choose a random mean between 1 and 6
-	    default_random_engine e1(rd());
-	    uniform_int_distribution<> uniform_dist(1, 1000);
-
+		random_device rd;
+		
+		// Choose a random mean between 1 and 6
+		default_random_engine e1(rd());
+		uniform_int_distribution<> uniform_dist(1, 1000);
+		
 		my_ll.add_elem(uniform_dist(e1));
 	}
 
@@ -147,11 +142,11 @@ int main(int argc, char** argv){
 		// cout << "inserting " << i << endl;
 
 		// Seed with a real random value, if available
-	    random_device rd;
+	    	random_device rd;
 	 
-	    // Choose a random mean between 1 and 6
-	    default_random_engine e1(rd());
-	    uniform_int_distribution<> uniform_dist(1, 1000);
+		// Choose a random mean between 1 and 6
+		default_random_engine e1(rd());
+		uniform_int_distribution<> uniform_dist(1, 1000);
 
 		my_ll.add_elem(uniform_dist(e1));
 	}
