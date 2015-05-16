@@ -14,7 +14,7 @@ struct a_node{
 	a_node(int valin):m_val(valin), next(NULL){;}
 	a_node(int valin, a_node* _the_next):m_val(valin), next(_the_next){;}
 	~a_node(){
-		// Need to implement an adequate destructor;
+		// intentionally empty
 	}
 
 	friend ostream& operator<<(ostream& os, a_node& node){
@@ -139,7 +139,6 @@ int main(int argc, char** argv){
 	cout << "Values in list : " << endl << my_ll << endl;
 
 	for (int i = 0; i < 10; i++){
-		// cout << "inserting " << i << endl;
 
 		// Seed with a real random value, if available
 	    	random_device rd;
